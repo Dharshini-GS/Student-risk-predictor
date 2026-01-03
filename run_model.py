@@ -17,6 +17,7 @@ categorical_cols = [
     "gender",
     "race/ethnicity",
     "parental level of education",
+
     "lunch",
     "test preparation course"
 ]
@@ -73,7 +74,6 @@ reading = int(input())
 print("Writing score:")
 writing = int(input())
 
-# Create DataFrame for new student
 student_dict = {
     "gender": gender,
     "race/ethnicity": race,
@@ -87,7 +87,6 @@ student_dict = {
 
 student_df = pd.DataFrame([student_dict])
 
-# **DO NOT use LabelEncoder.transform** on numeric inputs
 student_scaled = scaler.transform(student_df)
 prediction = model.predict(student_scaled)[0]
 prob = model.predict_proba(student_scaled)[0][1]
